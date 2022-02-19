@@ -1,44 +1,24 @@
-var app = angular.module('myApp', ['ngRoute']);
- 
-app.config(function($routeProvider) {
-$routeProvider
- 
-.when('/', {
-templateUrl : 'page1.html',
-controller : 'FirstController'}).when('/index/:first/:last',
+function getValuesInsert()
 {
-    templateUrl:'index.html',
-    controller:'FirstController'
-})
- 
-.when('/database', {
-templateUrl : 'page2.html',
-controller : 'SecondController'
-})
- 
-.when('/databasewithsearch', {
-templateUrl : 'page3.html',
-controller : 'ThirdController'
-})
- 
-.otherwise({redirectTo: '/'});
-});
+    iID=document.getElementById('insertID').value;
+    iName=document.getElementById('insertName').value;
+    iClass=document.getElementById('insertClass').value;
+    iLocation=document.getElementById('insertLocation').value;
+    alert(iID+iName+iClass+iLocation)
+}
 
-    app.controller('FirstController', function($scope,$routeParams) {
-    $scope.message = 'A one stop solution for all road side Assistance.'
-    $scope.compname = 'Automania Tow Services'
-    });
+function getValuesUpdate()
+{
+    uID=document.getElementById('updateID').value;
+    uName=document.getElementById('updateName').value;
+    uClass=document.getElementById('updateClass').value;
+    uLocation=document.getElementById('updateLocation').value;
+    alert(uID+uName+uClass+uLocation)
+}
 
-     
-    app.controller('SecondController', ['$scope', '$http', function($scope, $http)  {
-        $scope.userData = undefined;
-        var req = {
-            method: 'GET',
-            url: 'http://localhost:5500/check',
-            headers: { 'Content-Type': 'application/json' }
-        };
-        $http(req).then(function (response) {
-            $scope.userData  = response.data;
-        });
-      }]);
-     
+function deleteValues()
+{
+    dID=document.getElementById('deleteID').value;
+    alert(dID);
+}
+
